@@ -1,0 +1,24 @@
+paths:
+  /api/users:
+    get:
+      summary: Get List User
+      security:
+        - BearerAuth: []
+      tags:
+        - Users
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        200:
+          description: User data
+          content:
+            'application/json':
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Default'
+                  - properties:
+                      data:
+                        allOf:
+                          - $ref: '#/components/schemas/UserResponse'
