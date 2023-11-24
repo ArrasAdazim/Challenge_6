@@ -54,9 +54,9 @@ class CarsService {
 
   static async deleteCar(
     car_id: number,
-    deletedBy: number
+    deleted_by: number
   ): Promise<Car | null> {
-    const deletedCar = await CarsRepository.deleteCar(car_id, deletedBy);
+    const deletedCar = await CarsRepository.deleteCar(car_id, deleted_by);
     return deletedCar;
   }
 

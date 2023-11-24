@@ -1,0 +1,121 @@
+paths:
+  /api/cars:
+    get:
+      summary: Get List Cars
+      tags:
+        - Cars
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        200:
+          description: Car data
+          content:
+            'application/json':
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Default'
+                  - properties:
+                      data:
+                        allOf:
+                          - $ref: '#/components/schemas/ListCarResponse'
+    post:
+      summary: CREATED CAR
+      security:
+        - BearerAuth: []
+      tags:
+        - Cars
+      consumes:
+        - multipart/form-data
+      requestBody:
+        required: true
+        content:
+          'multipart/form-data':
+            schema:
+              $ref: '#/components/schemas/CarCreateRequest'
+      produces:
+        - multipart/form-data
+      responses:
+        200:
+          description: Access token
+          content:
+            'application/json':
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Default'
+                  - properties:
+                      data:
+                        allOf:
+                          - $ref: '#/components/schemas/CarCreateResponse'
+  /api/cars/{id}:
+    put:
+      summary: UPDATED CAR
+      security:
+        - BearerAuth: []
+      tags:
+        - Cars
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: id
+          in: path
+          description: ID of the car
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          'multipart/form-data':
+            schema:
+              $ref: '#/components/schemas/CarUpdateRequest'
+      produces:
+        - multipart/form-data
+      responses:
+        200:
+          description: Access token
+          content:
+            'application/json':
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Default'
+                  - properties:
+                      data:
+                        allOf:
+                          - $ref: '#/components/schemas/CarUpdateResponse'
+    delete:
+      summary: Delete Car
+      security:
+        - BearerAuth: []
+      tags:
+        - Cars
+      consumes:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: ID of the car
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/CarDeleteRequest'
+      produces:
+        - application/json
+      responses:
+        200:
+          description: Access token
+          content:
+            'application/json':
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Default'
+                  - properties:
+                      data:
+                        allOf:
+                          - $ref: '#/components/schemas/CarDeleteResponse'        

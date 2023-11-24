@@ -7,7 +7,6 @@ export async function seed(knex: Knex): Promise<void> {
   // Inserts seed entries
   await knex("cars").insert([
     {
-      id: 1,
       nama: "Honda",
       sewa: "Rp. 100.000",
       ukuran: "Large",
@@ -15,7 +14,6 @@ export async function seed(knex: Knex): Promise<void> {
       user_id: 1,
     },
     {
-      id: 2,
       nama: "BMW",
       sewa: "Rp. 100.000",
       ukuran: "Large",

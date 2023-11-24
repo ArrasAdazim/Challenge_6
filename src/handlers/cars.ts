@@ -33,7 +33,7 @@ class CarsHandler {
         status: "BAD_REQUEST",
         message: "Nama cannot be empty",
         data: {
-          created_tweet: null,
+          created_car: null,
         },
       };
 
@@ -42,13 +42,13 @@ class CarsHandler {
 
     payload.user_id = req.user.id as number;
 
-    const createdTweet: Car = await CarsService.createCar(payload);
+    const createdCar: Car = await CarsService.createCar(payload);
 
     const response: DefaultResponse = {
       status: "CREATED",
       message: "Car succesfully created",
       data: {
-        created_tweet: createdTweet,
+        created_car: createdCar,
       },
     };
 
@@ -94,10 +94,13 @@ class CarsHandler {
     return res.status(200).send(response);
   }
 
-  async deleteCarById(req: Request, res: Response) {
+  async deleteCar(req: Request, res: Response) {
     const car_id: number = parseInt(req.params.id);
-    const user_id = req.user.id as number;
-    const deletedCar: Car | null = await CarsService.deleteCar(car_id, user_id);
+    const deleted_by = req.user.id as number;
+    const deletedCar: Car | null = await CarsService.deleteCar(
+      car_id,
+      deleted_by
+    );
 
     if (!deletedCar) {
       const Response: DefaultResponse = {

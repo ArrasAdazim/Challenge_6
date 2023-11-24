@@ -46,7 +46,7 @@ app.post(
 app.delete(
   "/api/cars/:id",
   AuthMiddleware.authenticateAdmin,
-  carsHandler.deleteCarById
+  carsHandler.deleteCar
 );
 
 app.put(

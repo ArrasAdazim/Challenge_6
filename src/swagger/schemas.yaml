@@ -82,3 +82,115 @@ components:
               type: string
             password:
               type: string
+    ListCarResponse:
+      type: object
+      properties:
+        cars:
+          type: object
+          properties:
+            id:
+              type: integer
+            nama:
+              type: string
+            sewa:
+              type: string
+            ukuran:
+              type: string
+            foto:
+              type: string
+            user:
+              type: object
+              properties:
+                id:
+                  type: integer
+                name:
+                  type: string
+                email:
+                  type: string
+                profile_picture_file:
+                  type: string
+    CarCreateRequest:
+      type: object
+      properties:
+        nama:
+          type: string
+        sewa:
+          type: string
+        ukuran:
+          type: string
+        foto:
+          type: string
+          format: binary
+        user_id:
+          type: integer
+    CarCreateResponse:
+      type: object
+      properties:
+        created_car:
+          type: object
+          properties:
+            nama:
+              type: string
+            sewa:
+              type: string
+            ukuran:
+              type: string
+            foto:
+              type: string
+            user_id:
+              type: string
+            id:
+              type: integer
+    CarUpdateRequest:
+      type: object
+      properties:
+        nama:
+          type: string
+        sewa:
+          type: string
+        ukuran:
+          type: string
+        foto:
+          type: string
+          format: binary
+        user_id:
+          type: integer
+    CarUpdateResponse:
+      type: object
+      properties:
+        updated_car:
+          type: object
+          properties:
+            nama:
+              type: string
+            sewa:
+              type: string
+            ukuran:
+              type: string
+            foto:
+              type: string
+            user_id:
+              type: string
+    CarDeleteRequest:
+      type: object
+      properties:
+        deleted_by:
+          type: integer
+    CarDeleteResponse:
+      type: object
+      properties:
+        deleted_car:
+          type: object
+          properties:
+            id:
+              type: string
+            nama:
+              type: string
+            sewa:
+              type: string
+            ukuran:
+              type: string
+            foto:
+              type: string
+            user_id:
+              type: string
