@@ -1,3 +1,9 @@
+## Open API Swagger Endpoint
+
+```http
+   /api-docs
+```
+
 1. Jalankan Migrate : npx knex migrate:latest
 2. Jalankan Seed : npx knex seed:run
 3. Admin Account : 
