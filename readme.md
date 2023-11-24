@@ -33,10 +33,3 @@
 ## DELETED - RESPONSE REQUEST
 ![Screenshot_77](https://github.com/ArrasAdazim/Challenge_6/assets/94120631/6ba4b698-9394-4da2-8757-4ff43852b42a)
 
-
-
-1. Jalankan Migrate : npx knex migrate:latest
-2. Jalankan Seed : npx knex seed:run
-3. Admin Account : 
-    Email : admin@gmail.com atau arasaladzim98@gmail.com
-    Password : Bisa disetting sendiri di .ENV
